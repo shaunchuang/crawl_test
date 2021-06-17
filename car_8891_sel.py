@@ -39,5 +39,5 @@ for x in range(1, 4):
         
 
 print(df)
-df.to_csv('car.csv',encoding='utf-8')
+df.to_csv('car.csv',encoding='utf-8-sig')
 driver.close()
