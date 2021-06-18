@@ -20,6 +20,8 @@ for x in range(1, 4):
             f'//*[@id="search-result"]/a[{i}]/div/div[2]/div[1]/span')
         Brand = title.text.split(' ', 1)[0]
         Type = title.text.split(' ', 1)[1]
+        year_type = title.text.rsplit(' ', 2)[1]
+        Exhaust = title.text.rsplit(' ', 2)[2]
 
         describe = driver.find_element_by_xpath(
             f'//*[@id="search-result"]/a[{i}]/div/div[2]/div[2]')
@@ -33,7 +35,7 @@ for x in range(1, 4):
         distance = driver.find_element_by_xpath(
             f'//*[@id="search-result"]/a[{i}]/div/div[3]/span[3]')
 
-        df = df.append({'Brand': Brand, 'Type': Type, 'Title': title.text, 'Describe': describe.text, 'Price': price.text,
+        df = df.append({'Brand': Brand, 'Type': Type, 'year_type': year_type, 'Exhaust': Exhaust, 'Title': title.text, 'Describe': describe.text, 'Price': price.text,
                        'Year': year.text, 'Distance': distance.text}, ignore_index=True)
 
 
