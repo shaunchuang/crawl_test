@@ -2,9 +2,10 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from pprint import pprint
+# https://validator.w3.org/nu/?doc=https%3A%2F%2Fgoogle.com%2F&out=json
+#  https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fwww.totallylegal.com%2Fsearchjobs%2F
 
-
-url = 'https://www.abccar.com.tw//abcapi/search'
+url = 'https://validator.w3.org/nu/?showsource=yes&doc=https://www.abccar.com.tw//abcapi/search'
 headers = {'accept': 'application/json, text/javascript, */*; q=0.01',
            'accept-encoding': 'gzip, deflate, br',
            'accept-language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6',
@@ -34,6 +35,7 @@ headers = {'accept': 'application/json, text/javascript, */*; q=0.01',
 # 'upgrade-insecure-requests':'1',
 # 'user-agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36'}
 r = requests.get(url, headers=headers)
-pprint(r.text.strip())
-soup = BeautifulSoup(r.text, 'lxml')
-pprint(soup.text.strip())
+# pprint(r.text)
+pprint(r.text)
+# soup = BeautifulSoup(r.text, 'lxml')
+# pprint(soup.text)
