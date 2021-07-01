@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import csv
 from datetime import datetime
 import sys
+import time
 
 
 log = 'check_in_log.csv'
@@ -38,7 +39,7 @@ def to_line(message):
         r = requests.post("https://notify-api.line.me/api/notify",
                           headers=headers, params=params)
         if r.status_code == 200:
-            print("傳送line通知成功")
+            time.sleep(0.1)
         else:
             raise Exception('傳送line通知失敗')
     except Exception as err:
@@ -69,7 +70,7 @@ if __name__ == '__main__':
         try:
             htmlfile = requests.get(url)
             if htmlfile.status_code == requests.codes.ok:
-                print("打卡成功")
+                time.sleep(0.1)
             else:
                 raise Exception('打卡失敗')
         except Exception as err:
