@@ -75,7 +75,6 @@ def parse_html(r):
     else:
         raise exc('parse_error')  # 當beautifulsoup解析失敗為Nonetype時，將錯誤丟出function外
 
-# 'cookie':'g=mobile; PHPSESSID=4cfm8uuuoadmgfmqg54b80acg0; __ab=b; webp=1; _gcl_au=1.1.1197516456.1623856972; newcar_version=online; __gads=ID=eb1d3aa39b7b3281:T=1623856972:S=ALNI_Mbi88iGOVW1RSC9YpvmrDWaRXwV9g; _hjTLDTest=1; _hjid=8f6beed8-1df7-46e9-b1ae-f27f57093626; uuid=39974315-0ae6-49c3-b425-f14b4d9874d6; _=1; globalPopupAd=2; _ga=GA1.4.1383164813.1623856973; _fbp=fb.2.1624072959016.1508856945; _gid=GA1.3.1713299376.1624185735; _gat=1; _gat_crossdomain=1; user_session=1; utp=U1624185740; _ga=GA1.1.1383164813.1623856973; _ga_4YCT4M05RT=GS1.1.1624185735.8.1.1624185779.16; uvt=eyJ0cyI6eyJVIjozMjg1ODEuMDYwNzA5NzEsIk4iOjIyMC4xOTQzOTEyNTA2MX0sIm50IjoxNjI0MTg1NzgwLjIxNTgsIm5wIjoiVSJ9'}
 
 
 def equipment_crawl(soup, i):
@@ -118,7 +117,7 @@ def verified_crawl(soup, i):
             else:
                 raise exc('get-8891-verification error')
         except exc:
-            print(exc)
+            print(Exception)
             print('get8891-verification error: \n', sys.exc_info())
             print(i)
             return None
@@ -127,8 +126,9 @@ def verified_crawl(soup, i):
         print(i)
         return None
 
-# headers = {
-#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.68'}
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.68'}
 
 # df1=pd.DataFrame(columns=['id','m_id','auto_brand_en','auto_brand_id','auto_gas_size','auto_make_date','auto_mileage_num','auto_price','auto_price_tag',
 #                            'auto_price_type','auto_title_all','item_post_date','item_renew_date','is_new','item_show_num','photo','photoList','rank'])
@@ -163,17 +163,19 @@ df_final = pd.DataFrame(columns=['id', 'car_color', 'car_driveMode', 'car_fuel',
                                  '真皮/皮革座椅'])
 
 for i, m in zip(df1['id'], df1['m_id']):
-    # 獲取會員資訊
+
     print('--------------------------------------------------start new Car_page parsing ----------------------------------------------')
-
+    
+    # 取得商品頁面資訊
     url_info = f'https://auto.8891.com.tw/usedauto-infos-{i}.html'
-
+    
     try:
         soup = parse_html(get_html(url_info, headers))
     except:
         print('get-url error： %s\n' % url_info, sys.exc_info())
         continue
-
+    
+    # 獲取地址
     try:
         dealer_address = None
         dealer_address = soup.find(
@@ -182,6 +184,8 @@ for i, m in zip(df1['id'], df1['m_id']):
     except:
         print('get-dealer_address error: '+url_info+'\n', sys.exc_info())
         pass
+    
+    # 獲取車商id
 
     try:
         gethref = None
@@ -191,7 +195,7 @@ for i, m in zip(df1['id'], df1['m_id']):
         testre = re.search('[0-9]{3,5}.html', gethref)
         sid = testre[0].split('.')[0]
     except:
-        print('get-sid error: '+url_info+'\n', sys.exc_info())
+        print('get-sid error: '+url_info+'\n', sys.exc_info())  # 如果沒有車商id 則pass
         pass
 
     headers = {
@@ -206,13 +210,14 @@ for i, m in zip(df1['id'], df1['m_id']):
     params = (
         ('sid', f'{sid}'),
     )
-
+    # 嘗試獲取車商id資訊
     try:
         r = None
         r = requests.get(base_url, headers=headers, params=params)
         seller_role = r.json()['data']['shop_name']
         dealer_name = r.json()['data']['shop_name']
-
+    
+    # 如果出現 Key error 則嘗試抓取會員id
     except KeyError:
         try:
             print(f'Change to memberID: {m}, car_id: {i}')
@@ -266,7 +271,8 @@ for i, m in zip(df1['id'], df1['m_id']):
     except:
         print('get-car_info error: '+url_info+'\n', sys.exc_info())
         pass
-
+    
+    # 處理Dataframe
     try:
         df2 = None
         df2 = pd.DataFrame(columns=['id', 'car_color', 'car_driveMode', 'car_fuel', 'car_door',
@@ -283,6 +289,6 @@ for i, m in zip(df1['id'], df1['m_id']):
         print(url_info)
         continue
 
-df_xxx = df1.merge(df_final, on='id')
-df_xxx.to_csv('8891_0705.csv', mode='w', encoding='utf-8-sig')
-print('8891 All complete')
+df_xxx = df1.merge(df_final, on='id') # 與開頭抓取 json merge
+df_xxx.to_csv('8891_0705.csv', mode='w', encoding='utf-8-sig') 
+print('8891 complete')

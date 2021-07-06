@@ -1,0 +1,49 @@
+2021-07-05 15:21:01 - __main__ - INFO - start crawling new page
+2021-07-05 15:21:01 - __main__ - WARNING - driver_getURL error: 236581
+2021-07-05 15:21:01 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:21:01 - __main__ - INFO - start crawling new page
+2021-07-05 15:21:01 - __main__ - WARNING - driver_getURL error: 236578
+2021-07-05 15:21:01 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:21:01 - __main__ - INFO - start crawling new page
+2021-07-05 15:21:01 - __main__ - WARNING - driver_getURL error: 236571
+2021-07-05 15:21:01 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:21:01 - __main__ - INFO - start crawling new page
+2021-07-05 15:21:01 - __main__ - WARNING - driver_getURL error: 236495
+2021-07-05 15:21:01 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:21:01 - __main__ - INFO - start crawling new page
+2021-07-05 15:21:01 - __main__ - WARNING - driver_getURL error: 236493
+2021-07-05 15:21:01 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:23:17 - __main__ - INFO - start crawling new page: 236581
+2021-07-05 15:23:17 - __main__ - WARNING - driver_getURL error: 236581
+2021-07-05 15:23:17 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:23:17 - __main__ - INFO - start crawling new page: 236578
+2021-07-05 15:23:17 - __main__ - WARNING - driver_getURL error: 236578
+2021-07-05 15:23:17 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:23:17 - __main__ - INFO - start crawling new page: 236571
+2021-07-05 15:23:17 - __main__ - WARNING - driver_getURL error: 236571
+2021-07-05 15:23:17 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:23:17 - __main__ - INFO - start crawling new page: 236495
+2021-07-05 15:23:17 - __main__ - WARNING - driver_getURL error: 236495
+2021-07-05 15:23:17 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:23:17 - __main__ - INFO - start crawling new page: 236493
+2021-07-05 15:23:17 - __main__ - WARNING - driver_getURL error: 236493
+2021-07-05 15:23:17 - __main__ - WARNING - <built-in function exc_info>
+2021-07-05 15:23:17 - __main__ - INFO - Complete!
+2021-07-05 15:24:19 - __main__ - INFO - start crawling new page: 236581
+2021-07-05 15:24:26 - __main__ - INFO - start crawling new page: 236578
+2021-07-05 15:24:33 - __main__ - INFO - start crawling new page: 236571
+2021-07-05 15:24:40 - __main__ - INFO - start crawling new page: 236495
+2021-07-05 15:24:48 - __main__ - INFO - start crawling new page: 236493
+2021-07-05 15:24:55 - __main__ - INFO - Complete!
+2021-07-05 15:29:58 - __main__ - INFO - start crawling new page: 236581
+2021-07-05 15:30:05 - __main__ - INFO - start crawling new page: 236578
+2021-07-05 15:30:12 - __main__ - INFO - start crawling new page: 236571
+2021-07-05 15:30:19 - __main__ - INFO - start crawling new page: 236495
+2021-07-05 15:30:26 - __main__ - INFO - start crawling new page: 236493
+2021-07-05 15:30:33 - __main__ - INFO - Complete!
+2021-07-05 15:31:10 - __main__ - INFO - start crawling new page: 236581
+2021-07-05 15:31:17 - __main__ - INFO - start crawling new page: 236578
+2021-07-05 15:31:24 - __main__ - INFO - start crawling new page: 236571
+2021-07-05 15:31:31 - __main__ - INFO - start crawling new page: 236495
+2021-07-05 15:31:38 - __main__ - INFO - start crawling new page: 236493
+2021-07-05 15:31:44 - __main__ - INFO - Complete!
